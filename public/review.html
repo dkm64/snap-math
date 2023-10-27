@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/4Rl4qos.png">
+        <title>Snap Math - Review</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@350&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@1,700&display=swap');
+
+            body {
+                background-color: rgb(30,30,30);
+            }
+
+            .header {
+                background-color: #191919;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+            }
+
+            .item {
+                color: #7ed957;
+                font-size: 25px;
+                font-family: "Open Sans";
+                padding: 5px;
+                cursor: pointer;
+            }
+
+            .welcome {
+                text-align: center;
+                color: white;
+                font-family: "Open Sans";
+            }
+
+            .formula {
+                color: #7ed957;
+                font-family: "Poltawski Nowy";
+                font-size: 50px;
+            }
+
+            .w2 {
+                color: white;
+            }
+
+            .unit-container {
+                background-color: #191919;
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                color: #ffffff;
+                font-family: "Open Sans";
+                justify-content: center;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .unit {
+                background-color: #262626;
+                
+                border-radius: 10px;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .unit:hover {
+                background-color: #292929;
+            }
+
+            h2 {
+                padding: 5px;
+            }
+
+            input {
+                background-color: #262626;
+                box-sizing: border-box;
+                padding: 10px;
+                border-radius: 5px;
+                border: #191919;
+                color: white;
+            }
+
+            input[type=submit]:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img class="item" id="logo" width="100" height="100" src="https://i.imgur.com/4Rl4qos.png">            
+            <h1 class="item" id="units">Units</h1>
+        </div>
+        <div class="unit-container" style="display: block;">
+            <h1 id="subject"></h1>
+            <h2>Description:</h2>
+            <h2 id="description"></h2>
+            <h2>Instructions:</h2>
+            <h2 id="instructions"></h2>
+        </div>
+        <div class="unit-container" style="cursor: pointer;" id="practice">
+            <h1 style="color: #7ed957;">Practice Questions</h2>
+        </div>
+        <script>
+            document.getElementById("logo").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app")});
+            document.getElementById("units").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app/units.html")});
+
+            var subject = ["Scientific Notation", "Equations", "Graphing", "Systems of Equations", "Geometric Applications", "Inequalities", "Functions", "Quadratics", "Rational Expressions", "Exponents & Radicals", "Probability & Statistics"];
+            var description = ["Scientific notation is a way of expressing very large or very small numbers using powers of 10.", "Equations involve finding the unknown value in a mathematical statement.", "Graphing involves representing mathematical relationships on a coordinate plane.", "A system of equations involves solving multiple equations simultaneously.", "Applying algebra to geometric problems.", "Expressing relationships where one side is not equal to the other.", "An equation that relates an input to an output.", "A second order equation written as ax2 + bx + c = 0 where a, b, and c are coefficients of real numbers and a ≠ 0.", "Dealing with fractions involving variables.", "Understanding powers and roots.", "Basic concepts of probability, mean, median, and mode."];
+            var instructions = ["• Identify the exponent as the number of places the decimal point must move.<br>• Positive exponent for numbers greater than 1, negative exponent for numbers between 0 & 1", "• Use inverse operations (addition, subtraction, multiplication, division) to isolate the variable.<br>• The goal is to make on side of the equation equal to the other", "• Identify slope and y-intercept for linear equations<br>• Use points to plot a graph", "• Use substitution or elimination to find the values of variables.<br>• Check solutions in both equations", "• Understand formulas for area, perimeter, etc.<br>• Use algebraic expressions to represent geometric quantities.", "• Treat inequalities like equations but with different rules for multiplying/dividing by negatives<br>• Represent solutions on a number line.", "• Each input (x) corresponds to exactly one output (y)<br>• Represented as f(x) or y", "• Quadratic equations have the form ax² + bx + c = 0.<br>• Use factoring, completing the square, or quadratic formula to find solutions.", "• Simplitfy fractions by factoring and canceling common factors.<br>• Be aware of restrictions on variables (denominator cannot be zero).", "• Exponents represent repeated multiplication.<br>• Roots are the inverse of exponents.", "• Probability is the likelihood of an event happening.<br>• Mean is the average, median is the middle value, mode is the most frequent"];
+
+            var unit = localStorage.getItem('unit');
+
+            document.getElementById("subject").innerHTML = subject[unit];
+            document.getElementById("description").innerHTML = description[unit];
+            document.getElementById("instructions").innerHTML = instructions[unit];
+            document.getElementById("practice").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app/practice.html")});
+        </script>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/4Rl4qos.png">
+        <title>Snap Math - Units</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@350&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@1,700&display=swap');
+
+            body {
+                background-color: rgb(30,30,30);
+            }
+
+            .header {
+                background-color: #191919;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+            }
+
+            .item {
+                color: #7ed957;
+                font-size: 25px;
+                font-family: "Open Sans";
+                padding: 5px;
+                cursor: pointer;
+            }
+
+            .welcome {
+                text-align: center;
+                color: white;
+                font-family: "Open Sans";
+            }
+
+            .formula {
+                color: #7ed957;
+                font-family: "Poltawski Nowy";
+                font-size: 50px;
+            }
+
+            .w2 {
+                color: white;
+            }
+
+            .unit-container {
+                background-color: #191919;
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                color: #ffffff;
+                font-family: "Open Sans";
+                justify-content: center;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .unit {
+                background-color: #262626;
+                
+                border-radius: 10px;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .unit:hover {
+                background-color: #292929;
+            }
+
+            h2 {
+                padding: 5px;
+            }
+
+            input {
+                background-color: #262626;
+                box-sizing: border-box;
+                padding: 10px;
+                border-radius: 5px;
+                border: #191919;
+                color: white;
+            }
+
+            input[type=submit]:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img class="item" id="logo" width="100" height="100" src="https://i.imgur.com/4Rl4qos.png">            
+            <h1 class="item" id="units">Units</h1>
+        </div>
+        <div class="unit-container">
+            <div class="unit" id="0">
+                <h2>Scientific Notation</h2>
+            </div>
+            <div class="unit" id="1">
+                <h2>Equations</h2>
+            </div>
+            <div class="unit" id="2">
+                <h2>Graphing</h2>
+            </div>
+            <div class="unit" id="3">
+                <h2>Systems of Equations</h2>
+            </div>
+            <div class="unit" id="4">
+                <h2>Geometric Applications</h2>
+            </div>
+            <div class="unit" id="5">
+                <h2>Inequalities</h2>
+            </div>
+            <div class="unit" id="6">
+                <h2>Functions</h2>
+            </div>
+            <div class="unit" id="7">
+                <h2>Quadratics</h2>
+            </div>
+            <div class="unit" id="8">
+                <h2>Rational Expressions</h2>
+            </div>
+            <div class="unit" id="9">
+                <h2>Exponents & radicals</h2>
+            </div>
+            <div class="unit" id="10">
+                <h2>Probability & Statistics</h2>
+            </div>
+        </div>
+        <script>
+            document.getElementById("logo").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app")});
+            document.getElementById("units").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app/units.html")});
+            var unit = localStorage.getItem('unit');
+            
+            document.getElementById("0").addEventListener("click", function(){localStorage.setItem('unit', 0); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("1").addEventListener("click", function(){localStorage.setItem('unit', 1); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("2").addEventListener("click", function(){localStorage.setItem('unit', 2); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("3").addEventListener("click", function(){localStorage.setItem('unit', 3); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("4").addEventListener("click", function(){localStorage.setItem('unit', 4); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("5").addEventListener("click", function(){localStorage.setItem('unit', 5); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("6").addEventListener("click", function(){localStorage.setItem('unit', 6); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("7").addEventListener("click", function(){localStorage.setItem('unit', 7); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("8").addEventListener("click", function(){localStorage.setItem('unit', 8); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("9").addEventListener("click", function(){localStorage.setItem('unit', 9); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+            document.getElementById("10").addEventListener("click", function(){localStorage.setItem('unit', 10); window.location.assign("https://snap-math-bb314.web.app/review.html")});
+        </script>
+    </body>
+</html>

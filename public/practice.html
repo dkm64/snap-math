@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/4Rl4qos.png">
+        <title>Snap Math - Practice</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@350&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:ital,wght@1,700&display=swap');
+
+            body {
+                background-color: rgb(30,30,30);
+            }
+
+            .header {
+                background-color: #191919;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+            }
+
+            .item {
+                color: #7ed957;
+                font-size: 25px;
+                font-family: "Open Sans";
+                padding: 5px;
+                cursor: pointer;
+            }
+
+            .welcome {
+                text-align: center;
+                color: white;
+                font-family: "Open Sans";
+            }
+
+            .formula {
+                color: #7ed957;
+                font-family: "Poltawski Nowy";
+                font-size: 50px;
+            }
+
+            .w2 {
+                color: white;
+            }
+
+            .unit-container {
+                background-color: #191919;
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                flex-wrap: wrap;
+                color: #ffffff;
+                font-family: "Open Sans";
+                justify-content: center;
+                text-align: center;
+                margin-top: 5px;
+            }
+
+            .unit {
+                background-color: #262626;
+                
+                border-radius: 10px;
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .unit:hover {
+                background-color: #292929;
+            }
+
+            h2 {
+                padding: 5px;
+            }
+
+            input {
+                background-color: #262626;
+                box-sizing: border-box;
+                padding: 10px;
+                border-radius: 5px;
+                border: #191919;
+                color: white;
+            }
+
+            input[type=submit]:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img class="item" id="logo" width="100" height="100" src="https://i.imgur.com/4Rl4qos.png">            
+            <h1 class="item" id="units">Units</h1>
+        </div>
+        <div class="unit-container" style="display: block; padding: 10px;">
+            <h1 id="question"></h1>
+            <input class="input" id="input"></input>
+            <input type="submit" id="submit"></input>
+            <h2 id="answer" style="color: #7ed957; cursor: pointer;">Answer</h2>
+            <h3 id="status"></h3>
+        </div>
+        <script>
+            document.getElementById("logo").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app")});
+            document.getElementById("units").addEventListener("click", function(){window.location.assign("https://snap-math-bb314.web.app/units.html")});
+            var unit = localStorage.getItem('unit');
+
+            function check() {
+                if (answered == 0) {
+                    if (input.value == answer1[unit]) {
+                        answered++;
+                        status.innerHTML = "Correct!";
+                    }
+                }
+                if (answered == 1) {
+                    if (input.value == answer2[unit]) {
+                        answered++;
+                        questionTag.innerHTML = "Complete!";  
+                        document.getElementById("input").remove();
+                        document.getElementById("submit").remove();
+                        answer.remove();
+                        status.innerHTML = "Select units to practice more";
+                    }
+                }
+                set();
+            }
+            function set() {
+                if (answered == 0) {
+                    questionTag.innerHTML = question1[unit];
+                }
+                if (answered == 1) {
+                    questionTag.innerHTML = question2[unit];
+                }
+            }
+            var question1 = ["Type 0.00045 in scientific notation", "Solve for x: 2x + 5 = 11", "Type the first 3 points in the equation y = 2x - 3", "Solve the system {2x - y = 3, 3x +y = 7}", "Find the area of a rectangle with length (x + 3) and width (2x - 1)", "Solve the inequality: 2x + 3 > 7", "Is the following relation a function: {(1, 3), (2, 5), (3, 7)}", "Solve the quadratic equation: x ^ 2 - 4x + 4 = 0", "Simplify the expression: (2x^2 + 4x) / (x + 2)", "Simplify: 5^3 * 5^4","A six-sided die is rolled. What is the probability of rolling a 3?"];
+            var question2 = ["Express 6.2 * 10 ^ 3", "What is the solution to 3(y - 4) = 15", "Find the slope of a line passing through points (3, 5) and (1, 2)", "Write a system of equations for the following scenario: The sum of two numbers is 10, and their difference is 2", "The perimeter of a square is 4y. Find the length of one side in terms of y.", "Write an inequality for the statement: Twice a number decreased by 5 is at greater than 11.", "Given f(x) = 2x - 4, find f(3)", "Factor the quadratic expression: x^2 + 6x + 9", "Solve for x: (3x - 1) / (x + 5) = 2", "Solve for x: √(x + 3) = 5.", "Given the data set: {3, 5, 7, 8, 9}, find the median."];
+            var answer1 = ["4.5*10^-4", "x=3", "(0, -3), (1, -1), (2, 1)", "(2, 1)", "(x+3)(2x-1)", "x>2", "Yes", "2", "2x", "78125", "1/6"];
+            var answer2 = ["6200", "y=7", "3/2", "x+y=10 and x-y=2", "4y/4", "2x-5>11", "2", "(x+3)^2", "6", "22", "7"];
+            var answered = 0;
+            var questionTag = document.getElementById("question");
+            var input = document.getElementById("input");
+            var status = document.getElementById("status");
+            var answer = document.getElementById("answer");
+            document.getElementById("submit").addEventListener("click", function(){check()});
+            answer.addEventListener("click", function(){if (answered == 0){input.value = answer1[unit]} else {input.value = answer2[unit]}});    
+            
+            set();
+        </script>
+    </body>
+</html>
